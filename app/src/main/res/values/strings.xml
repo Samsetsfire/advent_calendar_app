@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Adventskalender 2018</string>
+    <string name="title_activity_frage">Tag X</string>
+    <string name="Frage">Frage</string>
+    <string name="edit_message">Antwort</string>
+    <string name="MyPrefsFile">MyPrefsFile</string>
+</resources>
