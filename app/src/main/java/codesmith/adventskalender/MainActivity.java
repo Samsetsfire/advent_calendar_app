@@ -2,6 +2,7 @@ package codesmith.adventskalender;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+
 
 
 public class MainActivity extends Activity {
@@ -40,6 +43,10 @@ public class MainActivity extends Activity {
 
         String mpf = getResources().getString(R.string.MyPrefsFile);
         SharedPreferences settings = getSharedPreferences(mpf, 0);
+
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("user","Eve");
+        editor.apply();
 
         Boolean z01 = settings.getBoolean("codesmith.adventskalender:id/z01", false);
         Boolean z02 = settings.getBoolean("codesmith.adventskalender:id/z02", false);

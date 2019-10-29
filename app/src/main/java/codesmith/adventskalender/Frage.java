@@ -2,6 +2,7 @@ package codesmith.adventskalender;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -200,7 +201,7 @@ public class Frage extends Activity {
 //                        "erfreut zur Weihnachtszeit die Kinder?", R.raw.s24);
 //                lsg = "Frohe Weihnachten!";
 //                break;
-                //endregion
+            //endregion
 
             //region Familie
 
@@ -251,7 +252,7 @@ public class Frage extends Activity {
                 antwortDesTages.add("Gummi".toLowerCase());
                 antwortDesTages.add("".toLowerCase());
                 createQuestionElement(id, "Nach was schmecken Regenwürmer?", R.raw.f10);
-                lsg="Ich hoffe du hast mal probiert ;)";
+                lsg = "Ich hoffe du hast mal probiert ;)";
                 break;
             case R.id.z11:
                 antwortDesTages.add("Amsterdam".toLowerCase());
@@ -416,6 +417,7 @@ public class Frage extends Activity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             TextView msg = new TextView(this);
             //Diverse String Ueberpruefungen
+            // TODO: 29.10.2019 Score is only calculated for first Answere...
             for (String loesung : antwortDesTages) {
                 //Berechnung ob ein Buchstabe vertauscht ist
                 int score = 0;
