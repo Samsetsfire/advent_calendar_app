@@ -1,11 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#ffbb4e"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
     <!-- Zeile1: 10, 2, 15, 7, 11, 18-->
@@ -18,62 +20,67 @@
             android:id="@+id/z10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_10"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_10" />
+
         <ImageButton
             android:id="@+id/z02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_02"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_02" />
+
         <ImageButton
             android:id="@+id/z15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_15"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_15" />
+
         <ImageButton
             android:id="@+id/z07"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_07"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_07" />
+
         <ImageButton
             android:id="@+id/z11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_11"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_11" />
+
         <ImageButton
             android:id="@+id/z18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_18"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_18" />
 
     </LinearLayout>
 
@@ -88,62 +95,67 @@
             android:id="@+id/z20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_20"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_20" />
+
         <ImageButton
             android:id="@+id/z04"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_04"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_04" />
+
         <ImageButton
             android:id="@+id/z23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_23"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_23" />
+
         <ImageButton
             android:id="@+id/z24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_24"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_24" />
+
         <ImageButton
             android:id="@+id/z13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_13"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_13" />
+
         <ImageButton
             android:id="@+id/z05"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_05"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_05" />
     </LinearLayout>
 
 
@@ -157,62 +169,67 @@
             android:id="@+id/z01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_01"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_01" />
+
         <ImageButton
             android:id="@+id/z16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_16"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_16" />
+
         <ImageButton
             android:id="@+id/z19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_19"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_19" />
+
         <ImageButton
             android:id="@+id/z08"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_08"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_08" />
+
         <ImageButton
             android:id="@+id/z12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_12"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_12" />
+
         <ImageButton
             android:id="@+id/z21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_21"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_21" />
 
     </LinearLayout>
 
@@ -227,62 +244,67 @@
             android:id="@+id/z17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_17"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_17" />
+
         <ImageButton
             android:id="@+id/z03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_03"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_03" />
+
         <ImageButton
             android:id="@+id/z06"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_06"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_06" />
+
         <ImageButton
             android:id="@+id/z09"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_09"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_09" />
+
         <ImageButton
             android:id="@+id/z14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_14"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_14" />
+
         <ImageButton
             android:id="@+id/z22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/zahl_22"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:background="#ffbb4e"
+            android:onClick="klick"
             android:padding="1dp"
-            android:onClick="klick"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/zahl_22" />
 
     </LinearLayout>
 

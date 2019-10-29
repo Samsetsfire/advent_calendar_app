@@ -10,6 +10,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -461,6 +463,25 @@ public class Frage extends Activity {
             dialog.show();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_frage, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.get_stats:
+                // TODO: 29.10.2019 Hier Funktion aufrufen, welche Results per rest abfraegt
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 //    Loesen Fehler aus, wenn Video abgespielt wird... Null Pointer bei onResume...
 //    @Override

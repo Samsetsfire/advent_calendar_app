@@ -2,7 +2,6 @@ package codesmith.adventskalender;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -21,7 +21,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -43,10 +45,6 @@ public class MainActivity extends Activity {
 
         String mpf = getResources().getString(R.string.MyPrefsFile);
         SharedPreferences settings = getSharedPreferences(mpf, 0);
-
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("user","Eve");
-        editor.apply();
 
         Boolean z01 = settings.getBoolean("codesmith.adventskalender:id/z01", false);
         Boolean z02 = settings.getBoolean("codesmith.adventskalender:id/z02", false);
@@ -322,6 +320,68 @@ public class MainActivity extends Activity {
         return false;
     }
 
+    public void setUserName() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        String mpf = getResources().getString(R.string.MyPrefsFile);
+        final SharedPreferences settings = getSharedPreferences(mpf, 0);
+        if (settings.getString(getResources().getString(R.string.user_name), "no_user_name_yet") == "no_user_name_yet") {
+            builder.setTitle("Wie heißt du?");
+        } else {
+            String userName = settings.getString(getResources().getString(R.string.user_name), "Niemand");
+            builder.setTitle("Aktueller Name: " + userName);
+        }
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String userName = input.getText().toString();
+                if (userName.length() == 0){
+                    //TODO Fehler abfangen
+                    return;
+                }
+
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString(getResources().getString(R.string.user_name), userName);
+                editor.apply();
+                //todo schoene Begruessung
+            }
+        });
+
+        builder.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        Toast.makeText(this, "Viel Spaß " +item.getTitle(), Toast.LENGTH_SHORT).show();
+        switch (item.getItemId()) {
+            case R.id.change_user_name:
+                setUserName();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
