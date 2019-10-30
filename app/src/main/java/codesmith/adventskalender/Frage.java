@@ -514,6 +514,9 @@ public class Frage extends Activity {
         switch (item.getItemId()) {
             case R.id.get_stats:
                 // TODO: 29.10.2019 Hier Funktion aufrufen, welche Results per rest abfraegt
+                // Anfrage mit Datum -> Eintrag wird angelegt
+                // Anfrage ohne Datum -> Nur Ergebnisse
+                //besser zweite rest funktion -> zum abspeichern und eintragen von Werten
                 return true;
 
             default:
