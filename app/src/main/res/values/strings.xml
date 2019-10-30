@@ -3,6 +3,11 @@
     <string name="title_activity_frage">Tag X</string>
     <string name="Frage">Frage</string>
     <string name="edit_message">Antwort</string>
+
+
+<!--    -->
     <string name="MyPrefsFile">MyPrefsFile</string>
     <string name="user_name">user_name</string>
+    <string name="res_trials">trials_day_%s</string>
+    <string name="res_solved_datetime">solved_datetime_day_%s</string>
 </resources>

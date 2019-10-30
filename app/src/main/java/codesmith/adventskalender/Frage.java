@@ -18,8 +18,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Frage extends Activity {
     List<String> antwortDesTages = new ArrayList<String>();
@@ -337,19 +340,19 @@ public class Frage extends Activity {
 //        }
 //        AudioPlay.playAudio(this, R.raw.f02);
 //
-        TextView frage = (TextView) findViewById(R.id.Frage);
+        TextView frage = findViewById(R.id.Frage);
         frage.setText(question);
 
         Resources resources = getResources();
         if (resources.getResourceTypeName(res_id).equals("drawable")) {
-            ImageView bild = (ImageView) findViewById(R.id.Bild);
+            ImageView bild = findViewById(R.id.Bild);
             bild.setImageResource(res_id);
             bild.setVisibility(View.VISIBLE);
         } else if (resources.getResourceTypeName(res_id).equals("raw")) {
             while (AudioPlay.isplayingAudio) {
                 AudioPlay.stopAudio();
             }
-            VideoView video = (VideoView) findViewById(R.id.Video);
+            VideoView video = findViewById(R.id.Video);
             Uri uri = Uri.parse(
                     "android.resource://"
                             + getPackageName()
@@ -369,14 +372,14 @@ public class Frage extends Activity {
         }
     }
 
-
     public void readAnswere(View v) {
-        EditText antwort = (EditText) findViewById(R.id.Antwort);
+        EditText antwort = findViewById(R.id.Antwort);
         String antwort_benutzer = antwort.getText().toString().toLowerCase(); // Antwortstring wird eingelesen und kleingeschrieben
 
 
         Bundle bund = getIntent().getExtras();      //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
         String idAsString = bund.getString("idAsString");       //Holt den ID Namen aus Uebergabeparameter
+        String day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
 
         //if (message.equals(antwortDesTages)){
         if (antwortDesTages.contains(antwort_benutzer)) {
@@ -406,12 +409,28 @@ public class Frage extends Activity {
             //Speichert dass Frage geloest
             String mpf = getResources().getString(R.string.MyPrefsFile);        //Eindeutiger String aus string.xml fuer die Shared Preferences
             SharedPreferences settings = getSharedPreferences(mpf, 0);      //Zugriff auf SharedPreferences welche Werte Fest auf der Festpaltte speichert.
+            Integer trials = settings.getInt(getResources().getString(R.string.res_trials, day_as_string), 0);
+            trials++;
+
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.GERMAN);
+            Date date = new Date(System.currentTimeMillis());
+//            System.out.println(formatter.format(date));
+            //todo check if question was already solved...
+            updateResultElement(day_as_string, trials, formatter.format(date));
+
             SharedPreferences.Editor editor = settings.edit();
             editor.putBoolean(idAsString, true);         //Speichert ob der Tag geloesst worden ist.
-            editor.commit();
+            editor.apply();
+
         }
         //Wenn die Antwort nicht im Dictionary zu finden ist:
         else {
+            String mpf = getResources().getString(R.string.MyPrefsFile);        //Eindeutiger String aus string.xml fuer die Shared Preferences
+            SharedPreferences settings = getSharedPreferences(mpf, 0);      //Zugriff auf SharedPreferences welche Werte Fest auf der Festpaltte speichert.
+            Integer trials = settings.getInt(getResources().getString(R.string.res_trials, day_as_string), 0);
+            trials++;
+            updateResultElement(day_as_string, trials);
+
             false_answere_counter++; // Integer.toString(false_answere_counter;
             String hint = "Leider nicht richtig... ";
             MediaPlayer mp = MediaPlayer.create(this, R.raw.f_wrong);
@@ -462,6 +481,26 @@ public class Frage extends Activity {
             AlertDialog dialog = builder.create();
             dialog.show();
         }
+    }
+
+    public void updateResultElement(String day, Integer trials, String solved_date) {
+        String mpf = getResources().getString(R.string.MyPrefsFile);
+        SharedPreferences settings = getSharedPreferences(mpf, 0);
+
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt(getResources().getString(R.string.res_trials, day), trials);
+        editor.putString(getResources().getString(R.string.res_solved_datetime, day), solved_date);
+        editor.apply();
+
+    }
+
+    public void updateResultElement(String day, Integer trials) {
+        String mpf = getResources().getString(R.string.MyPrefsFile);
+        SharedPreferences settings = getSharedPreferences(mpf, 0);
+
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt(getResources().getString(R.string.res_trials, day), trials);
+        editor.apply();
     }
 
     @Override
