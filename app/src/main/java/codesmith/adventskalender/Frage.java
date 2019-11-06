@@ -18,6 +18,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpResponse;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -513,6 +525,7 @@ public class Frage extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.get_stats:
+                build_stats();
                 // TODO: 29.10.2019 Hier Funktion aufrufen, welche Results per rest abfraegt
                 // Anfrage mit Datum -> Eintrag wird angelegt
                 // Anfrage ohne Datum -> Nur Ergebnisse
@@ -522,6 +535,69 @@ public class Frage extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void build_stats() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        TextView msg = new TextView(this);
+        TextView msg = postData(this);
+        msg.setPadding(10, 15, 10, 10);
+        msg.setTextSize(20);
+        msg.setGravity(Gravity.CENTER);
+        builder.setView(msg);
+        builder.setPositiveButton("Genug", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public TextView postData(Context context) {
+        final TextView msg = new TextView(context);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://git.heroku.com/advent-calendar-data-api.git";
+
+        // Request a string response from the provided URL.
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                msg.setText(response.toString());
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(jsonObjectRequest);
+        return msg;
+
+//        // Create a new HttpClient and Post Header
+//        HttpClient httpclient = new DefaultHttpClient();
+//        HttpPost httppost = new HttpPost("http://www.yoursite.com/script.php");
+//
+//        try {
+//            // Add your data
+//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+//            nameValuePairs.add(new BasicNameValuePair("id", "12345"));
+//            nameValuePairs.add(new BasicNameValuePair("stringdata", "Hi"));
+//            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+//
+//            // Execute HTTP Post Request
+//            HttpResponse response = httpclient.execute(httppost);
+//
+//        } catch (ClientProtocolException e) {
+//            // TODO Auto-generated catch block
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//        }
     }
 
 
