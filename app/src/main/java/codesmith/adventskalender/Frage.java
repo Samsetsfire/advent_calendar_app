@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,23 +19,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpResponse;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class Frage extends Activity {
     List<String> antwortDesTages = new ArrayList<String>();
@@ -525,7 +534,11 @@ public class Frage extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.get_stats:
-                build_stats();
+                try {
+                    build_stats();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 // TODO: 29.10.2019 Hier Funktion aufrufen, welche Results per rest abfraegt
                 // Anfrage mit Datum -> Eintrag wird angelegt
                 // Anfrage ohne Datum -> Nur Ergebnisse
@@ -537,7 +550,7 @@ public class Frage extends Activity {
         }
     }
 
-    public void build_stats() {
+    public void build_stats() throws JSONException {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //        TextView msg = new TextView(this);
         TextView msg = postData(this);
@@ -554,29 +567,72 @@ public class Frage extends Activity {
         dialog.show();
     }
 
-    public TextView postData(Context context) {
+    public TextView postData(Context context) throws JSONException {
+        JSONObject jsonBody = new JSONObject();
+        jsonBody.put("api_key", "123");
+//        jsonBody.put("api_key", "Valar dohaeris");
+        jsonBody.put("question", 1);
+        jsonBody.put("user_name", "PeterThe second");
+        jsonBody.put("trials", 1);
+        jsonBody.put("solved_date", JSONObject.NULL);
+        final String requestBody = jsonBody.toString();
+
         final TextView msg = new TextView(context);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://git.heroku.com/advent-calendar-data-api.git";
+//        String url = "https://advent-calendar-data-api.herokuapp.com/get_results";
+        String url = "http://172.22.33.173:8001/get_results";
 
-        // Request a string response from the provided URL.
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest  postRequest = new JsonArrayRequest(Request.Method.POST, url, null,
+                new Response.Listener<JSONArray>() {
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d("Response", response.toString());
+                        msg.setText(response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Error.Response", "Error: " + error.getMessage());
+
+                    }
+                }
+        ) {
+            //            @Override
+//            protected Map<String, String> getParams()
+//            {
+//                Map<String, String>  params = new HashMap<String, String>();
+//                params.put("api_key", "Valar dohaeris");
+//                params.put("question", "1");
+//                params.put("user_name", "PeterThe second");
+//                params.put("trials", "1");
+//                params.put("solved_date", "");
+//
+//                return params;
+//            }
+//
+//
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
 
             @Override
-            public void onResponse(JSONObject response) {
-                msg.setText(response.toString());
+            public byte[] getBody() {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
             }
-        }, new Response.ErrorListener() {
 
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // TODO: Handle error
-
-            }
-        });
+        };
 
         // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest);
+        queue.add(postRequest);
         return msg;
 
 //        // Create a new HttpClient and Post Header
