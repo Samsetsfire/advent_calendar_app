@@ -19,43 +19,42 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.HttpResponse;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 public class Frage extends Activity {
     List<String> antwortDesTages = new ArrayList<String>();
     String lsg = "Richtig!";
     int false_answere_counter = 0;
+    String idAsString;
+    String day_as_string;
+    Result result;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frage);
         Bundle bund = getIntent().getExtras(); //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
-        String idAsString = bund.getString("idAsString"); //Holt den ID Namen aus Uebergabeparameter
+        this.idAsString = bund.getString("idAsString"); //Holt den ID Namen aus Uebergabeparameter
+        this.day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
+        this.result = new Result(this, day_as_string);
         Integer id = bund.getInt("id"); // Holt die ID des Tagesbutton aus den Uebergabeparameter
         String substring = idAsString.substring(Math.max(idAsString.length() - 2, 0)); //Zahl fuer den Titel aus dem Id Namen
         setTitle(substring + ". Dezember"); // Titel der Aktivity
@@ -394,13 +393,11 @@ public class Frage extends Activity {
     }
 
     public void readAnswere(View v) {
+
+
         EditText antwort = findViewById(R.id.Antwort);
         String antwort_benutzer = antwort.getText().toString().toLowerCase(); // Antwortstring wird eingelesen und kleingeschrieben
 
-
-        Bundle bund = getIntent().getExtras();      //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
-        String idAsString = bund.getString("idAsString");       //Holt den ID Namen aus Uebergabeparameter
-        String day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
 
         //if (message.equals(antwortDesTages)){
         if (antwortDesTages.contains(antwort_benutzer)) {
@@ -435,9 +432,7 @@ public class Frage extends Activity {
 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.GERMAN);
             Date date = new Date(System.currentTimeMillis());
-//            System.out.println(formatter.format(date));
-            //todo check if question was already solved...
-            updateResultElement(day_as_string, trials, formatter.format(date));
+            result.updateResultElement(trials, formatter.format(date));
 
             SharedPreferences.Editor editor = settings.edit();
             editor.putBoolean(idAsString, true);         //Speichert ob der Tag geloesst worden ist.
@@ -450,7 +445,7 @@ public class Frage extends Activity {
             SharedPreferences settings = getSharedPreferences(mpf, 0);      //Zugriff auf SharedPreferences welche Werte Fest auf der Festpaltte speichert.
             Integer trials = settings.getInt(getResources().getString(R.string.res_trials, day_as_string), 0);
             trials++;
-            updateResultElement(day_as_string, trials);
+            result.updateResultElement(trials);
 
             false_answere_counter++; // Integer.toString(false_answere_counter;
             String hint = "Leider nicht richtig... ";
@@ -504,25 +499,6 @@ public class Frage extends Activity {
         }
     }
 
-    public void updateResultElement(String day, Integer trials, String solved_date) {
-        String mpf = getResources().getString(R.string.MyPrefsFile);
-        SharedPreferences settings = getSharedPreferences(mpf, 0);
-
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(getResources().getString(R.string.res_trials, day), trials);
-        editor.putString(getResources().getString(R.string.res_solved_datetime, day), solved_date);
-        editor.apply();
-
-    }
-
-    public void updateResultElement(String day, Integer trials) {
-        String mpf = getResources().getString(R.string.MyPrefsFile);
-        SharedPreferences settings = getSharedPreferences(mpf, 0);
-
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(getResources().getString(R.string.res_trials, day), trials);
-        editor.apply();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -539,7 +515,7 @@ public class Frage extends Activity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                // TODO: 29.10.2019 Hier Funktion aufrufen, welche Results per rest abfraegt
+                // TODO: 29.10.2019 Hier Funktion aufrufen, welche Result per rest abfraegt
                 // Anfrage mit Datum -> Eintrag wird angelegt
                 // Anfrage ohne Datum -> Nur Ergebnisse
                 //besser zweite rest funktion -> zum abspeichern und eintragen von Werten
@@ -571,18 +547,20 @@ public class Frage extends Activity {
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("api_key", "123");
 //        jsonBody.put("api_key", "Valar dohaeris");
-        jsonBody.put("question", 1);
+        jsonBody.put("question", day_as_string);
         jsonBody.put("user_name", "PeterThe second");
-        jsonBody.put("trials", 1);
-        jsonBody.put("solved_date", JSONObject.NULL);
+        jsonBody.put("trials", result.get_trials());
+//        jsonBody.put("solved_date", JSONObject.NULL);
+        jsonBody.put("solved_date", result.get_solved_date());
         final String requestBody = jsonBody.toString();
 
         final TextView msg = new TextView(context);
         RequestQueue queue = Volley.newRequestQueue(this);
 //        String url = "https://advent-calendar-data-api.herokuapp.com/get_results";
-        String url = "http://172.22.33.173:8001/get_results";
+//        String url = "http://172.22.33.173:8001/get_results";
+        String url = "http://192.168.178.45:8001/get_results";
 
-        JsonArrayRequest  postRequest = new JsonArrayRequest(Request.Method.POST, url, null,
+        JsonArrayRequest postRequest = new JsonArrayRequest(Request.Method.POST, url, null,
                 new Response.Listener<JSONArray>() {
 
                     @Override
@@ -600,20 +578,7 @@ public class Frage extends Activity {
                     }
                 }
         ) {
-            //            @Override
-//            protected Map<String, String> getParams()
-//            {
-//                Map<String, String>  params = new HashMap<String, String>();
-//                params.put("api_key", "Valar dohaeris");
-//                params.put("question", "1");
-//                params.put("user_name", "PeterThe second");
-//                params.put("trials", "1");
-//                params.put("solved_date", "");
-//
-//                return params;
-//            }
-//
-//
+
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
@@ -635,25 +600,6 @@ public class Frage extends Activity {
         queue.add(postRequest);
         return msg;
 
-//        // Create a new HttpClient and Post Header
-//        HttpClient httpclient = new DefaultHttpClient();
-//        HttpPost httppost = new HttpPost("http://www.yoursite.com/script.php");
-//
-//        try {
-//            // Add your data
-//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-//            nameValuePairs.add(new BasicNameValuePair("id", "12345"));
-//            nameValuePairs.add(new BasicNameValuePair("stringdata", "Hi"));
-//            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-//
-//            // Execute HTTP Post Request
-//            HttpResponse response = httpclient.execute(httppost);
-//
-//        } catch (ClientProtocolException e) {
-//            // TODO Auto-generated catch block
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//        }
     }
 
 
