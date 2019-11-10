@@ -5,9 +5,20 @@
     <string name="edit_message">Antwort</string>
 
 
-<!--    -->
+    <!--    -->
     <string name="MyPrefsFile">MyPrefsFile</string>
     <string name="user_name">user_name</string>
     <string name="res_trials">trials_day_%s</string>
     <string name="res_solved_datetime">solved_datetime_day_%s</string>
+
+    <!--    REST API KEYS-->
+    <string name="rest_api_key">api_key</string>
+    <string name="rest_question">question</string>
+    <string name="rest_name">user_name</string>
+    <string name="rest_trials">trials</string>
+    <string name="rest_datetime">solved_date</string>
+
+    <string name="SECRET_API_KEY">"Valar dohaeris"</string>
+    <string name="SECRET_API_KEY_DEBUG">"123"</string>
+
 </resources>

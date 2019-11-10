@@ -23,7 +23,6 @@ import java.util.Date;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -329,7 +328,7 @@ public class MainActivity extends Activity {
             builder.setTitle("Wie heißt du?");
         } else {
             String userName = settings.getString(getResources().getString(R.string.user_name), "Niemand");
-            builder.setTitle("Aktueller Name: " + userName);
+            builder.setTitle("Aktueller Name: \"" + userName+"\"");
         }
 
         // Set up the input

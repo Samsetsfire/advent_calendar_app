@@ -20,27 +20,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import de.codecrafters.tableview.TableView;
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 
 public class Frage extends Activity {
     List<String> antwortDesTages = new ArrayList<String>();
@@ -515,7 +502,8 @@ public class Frage extends Activity {
         switch (item.getItemId()) {
             case R.id.get_stats:
                 try {
-                    build_stats();
+                    StatisticSView statisic_view = new StatisticSView(this, day_as_string, result);
+                    statisic_view.postData();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -528,92 +516,6 @@ public class Frage extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void build_stats() throws JSONException {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        view needs to be inflated, so that "findViewById" does find an element
-        View view= LayoutInflater.from(getApplicationContext()).inflate(R.layout.statitics_view,null);
-//        builder.setView(R.layout.statitics_view);
-        builder.setView(view);
-
-
-        String[][] DATA_TO_SHOW = { { "This", "is", "a", "test" },
-                { "and", "a", "second", "test" } };
-        TableView<String[]> tableView = view.findViewById(R.id.statisticTableView);
-        tableView.setDataAdapter(new SimpleTableDataAdapter(this, DATA_TO_SHOW));
-
-        TextView msg = postData(this);
-        msg.setPadding(10, 15, 10, 10);
-        msg.setTextSize(20);
-        msg.setGravity(Gravity.CENTER);
-//        builder.setView(msg);
-        builder.setPositiveButton("Genug", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    public TextView postData(Context context) throws JSONException {
-        JSONObject jsonBody = new JSONObject();
-//        jsonBody.put("api_key", "123");
-        jsonBody.put("api_key", "Valar dohaeris");
-        jsonBody.put("question", day_as_string);
-        jsonBody.put("user_name", "PeterThe second");
-        jsonBody.put("trials", result.get_trials());
-//        jsonBody.put("solved_date", JSONObject.NULL);
-        jsonBody.put("solved_date", result.get_solved_date());
-        final String requestBody = jsonBody.toString();
-
-        final TextView msg = new TextView(context);
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://advent-calendar-data-api.herokuapp.com/get_results";
-//        String url = "http://172.22.33.173:8001/get_results";
-//        String url = "http://192.168.178.45:8001/get_results";
-
-        JsonArrayRequest postRequest = new JsonArrayRequest(Request.Method.POST, url, null,
-                new Response.Listener<JSONArray>() {
-
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
-                        msg.setText(response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", "Error: " + error.getMessage());
-
-                    }
-                }
-        ) {
-
-            @Override
-            public String getBodyContentType() {
-                return "application/json; charset=utf-8";
-            }
-
-            @Override
-            public byte[] getBody() {
-                try {
-                    return requestBody == null ? null : requestBody.getBytes("utf-8");
-                } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
-                    return null;
-                }
-            }
-
-        };
-
-        // Add the request to the RequestQueue.
-        queue.add(postRequest);
-        return msg;
-
     }
 
 
