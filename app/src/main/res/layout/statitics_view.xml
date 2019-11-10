@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<de.codecrafters.tableview.TableView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:table="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/statisticTableView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    table:tableView_columnCount="4" />
+
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="fill_parent"-->
+<!--    android:layout_height="fill_parent"-->
+<!--    android:background="#ffccd0"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <TextView-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="5dip"-->
+<!--        android:background="#ffb0b6"-->
+<!--        android:gravity="center_vertical|center_horizontal"-->
+<!--        android:text="Countries List"-->
+<!--        android:textColor="#b3000d"-->
+<!--        android:textSize="26dip"-->
+<!--        android:textStyle="bold"-->
+<!--        android:typeface="sans" />-->
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/rl_country_heading"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#555555">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_11"-->
+<!--            android:layout_width="70dip"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Abbr"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="18dip"-->
+<!--            android:textStyle="normal|bold"></TextView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_12"-->
+<!--            android:layout_width="150dip"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toRightOf="@+id/tv_11"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Comment"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="18dip"-->
+<!--            android:textStyle="normal|bold"></TextView>-->
+<!--    </RelativeLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/ll_country"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent">-->
+
+<!--        <ScrollView-->
+<!--            android:id="@+id/ScrollView11"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent"-->
+<!--            android:fillViewport="true">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="5dip">-->
+
+<!--                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--                    android:id="@+id/country_table"-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="fill_parent"-->
+<!--                    android:stretchColumns="0,1"></TableLayout>-->
+<!--            </LinearLayout>-->
+<!--        </ScrollView>-->
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->
