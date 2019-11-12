@@ -2,16 +2,13 @@ package codesmith.adventskalender;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,7 +32,7 @@ public class Frage extends Activity {
     int false_answere_counter = 0;
     String idAsString;
     String day_as_string;
-    Result result;
+    LocalResult result;
 
 
     @Override
@@ -45,7 +42,7 @@ public class Frage extends Activity {
         Bundle bund = getIntent().getExtras(); //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
         this.idAsString = bund.getString("idAsString"); //Holt den ID Namen aus Uebergabeparameter
         this.day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
-        this.result = new Result(this, day_as_string);
+        this.result = new LocalResult(this, day_as_string);
         Integer id = bund.getInt("id"); // Holt die ID des Tagesbutton aus den Uebergabeparameter
         String substring = idAsString.substring(Math.max(idAsString.length() - 2, 0)); //Zahl fuer den Titel aus dem Id Namen
         setTitle(substring + ". Dezember"); // Titel der Aktivity
@@ -401,6 +398,7 @@ public class Frage extends Activity {
             msg.setTextSize(20);
             msg.setGravity(Gravity.CENTER);
             builder.setView(msg);
+            //todo add option to show statistics
             builder.setPositiveButton("Zurück zum Kalender", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     finish();
@@ -507,7 +505,7 @@ public class Frage extends Activity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                // TODO: 29.10.2019 Hier Funktion aufrufen, welche Result per rest abfraegt
+                // TODO: 29.10.2019 Hier Funktion aufrufen, welche LocalResult per rest abfraegt
                 // Anfrage mit Datum -> Eintrag wird angelegt
                 // Anfrage ohne Datum -> Nur Ergebnisse
                 //besser zweite rest funktion -> zum abspeichern und eintragen von Werten

@@ -24,6 +24,8 @@ import java.util.Date;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
+
 
 public class MainActivity extends Activity {
     public Activity activity;
@@ -33,6 +35,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AndroidThreeTen.init(this);
         setContentView(R.layout.activity_main);
         FrageSuspendsMusic = false;
 

@@ -6,8 +6,10 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -21,15 +23,23 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.threeten.bp.ZonedDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
-import de.codecrafters.tableview.TableView;
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
+import de.codecrafters.tableview.SortableTableView;
+import de.codecrafters.tableview.TableDataAdapter;
+import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 class StatisticSView {
+    private static final String[] tableHeaders = {"Name", "gelöst am", "Versuche"};
     private String day;
-    private Result result;
+    private LocalResult result;
     private Context context;
     private String restApiKey;
     private String restQuestionId;
@@ -38,7 +48,7 @@ class StatisticSView {
     private String restDateTime;
 
 
-    StatisticSView(Context context, String day, Result result) {
+    StatisticSView(Context context, String day, LocalResult result) {
         this.context = context;
         this.result = result;
         this.day = day;
@@ -56,20 +66,22 @@ class StatisticSView {
         // view needs to be inflated, so that "findViewById" does find an element
         View view = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.statitics_view, null);
         builder.setView(view);
-        //user notice if no stats are available
-        String[][] table_data = new String[json_array.length()][];
+        // notice to user if no stats are available
+
+        List<Result> results = new ArrayList<>();
         for (int i = 0; i < json_array.length(); i++) {
             JSONObject json_object = json_array.getJSONObject(i);
-            String[] arr = {json_object.getString(restUserName),
-                    json_object.getString(restDateTime),
-                    json_object.getString(restTrials)};
-            table_data[i] = arr;
+            results.add(new Result(json_object.getString(restUserName), json_object.getString(restDateTime), json_object.getString(restTrials)));
         }
 
-        TableView<String[]> tableView = view.findViewById(R.id.statisticTableView);
-        tableView.setDataAdapter(new SimpleTableDataAdapter(context, table_data));
-
-        builder.setPositiveButton("Genug", new DialogInterface.OnClickListener() {
+        SortableTableView<Result> tableView = view.findViewById(R.id.statisticTableView);
+        tableView.setColumnComparator(0, new ResultNameComparator());
+        tableView.setColumnComparator(1, new ResultDateComparator());
+        tableView.setColumnComparator(2, new ResultTrialsComparator());
+        tableView.setDataAdapter(new ResultTableDataAdapter(context, results));
+        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(context, tableHeaders));
+//todo nicht zurück sondern zum kalender
+        builder.setPositiveButton("Zurück", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -141,8 +153,81 @@ class StatisticSView {
         };
 
         // Add the request to the RequestQueue.
+        //todo waiting animation
         queue.add(postRequest);
 
+    }
+
+    public class ResultTableDataAdapter extends TableDataAdapter<Result> {
+
+        public ResultTableDataAdapter(Context context, List<Result> data) {
+            super(context, data);
+        }
+
+        View renderUserName(Result result) {
+            TextView tv = new TextView(context);
+            tv.setText(result.user_name);
+            tv.setGravity(Gravity.CENTER);
+            return tv;
+        }
+
+        View renderDatetime(Result result) {
+            ZonedDateTime zdt = ZonedDateTime.parse(result.solved_date);
+            String newFormat = zdt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+            TextView tv = new TextView(context);
+            tv.setGravity(Gravity.CENTER);
+            tv.setText(newFormat);
+            return tv;
+        }
+
+        View renderTrials(Result result) {
+            TextView tv = new TextView(context);
+            tv.setText(result.trials);
+            tv.setGravity(Gravity.CENTER);
+            return tv;
+        }
+
+        @Override
+        public View getCellView(int rowIndex, int columnIndex, ViewGroup parentView) {
+            Result result = getRowData(rowIndex);
+            View renderedView = null;
+
+            switch (columnIndex) {
+                case 0:
+                    renderedView = renderUserName(result);
+                    break;
+                case 1:
+                    renderedView = renderDatetime(result);
+                    break;
+                case 2:
+                    renderedView = renderTrials(result);
+                    break;
+            }
+
+            return renderedView;
+        }
+
+    }
+
+    private static class ResultDateComparator implements Comparator<Result> {
+        @Override
+        public int compare(Result result1, Result result2) {
+            return result1.solved_date.compareTo(result2.solved_date);
+        }
+    }
+
+    private static class ResultTrialsComparator implements Comparator<Result> {
+        @Override
+        public int compare(Result result1, Result result2) {
+            return result1.trials.compareTo(result2.trials);
+        }
+    }
+
+    private static class ResultNameComparator implements Comparator<Result> {
+        @Override
+        public int compare(Result result1, Result result2) {
+            return result1.user_name.compareTo(result2.user_name);
+        }
     }
 
 
