@@ -1,6 +1,8 @@
 package codesmith.adventskalender;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -39,7 +41,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 class StatisticSView {
     private static final String[] tableHeaders = {"Name", "gelöst am", "Versuche"};
     private String day;
-    private LocalResult result;
+    //    private LocalResult result;
     private Context context;
     private String restApiKey;
     private String restQuestionId;
@@ -48,9 +50,9 @@ class StatisticSView {
     private String restDateTime;
 
 
-    StatisticSView(Context context, String day, LocalResult result) {
+    StatisticSView(Context context, String day) {
         this.context = context;
-        this.result = result;
+//        this.result = result;
         this.day = day;
         this.restApiKey = context.getResources().getString(R.string.rest_api_key);
         this.restQuestionId = context.getResources().getString(R.string.rest_question);
@@ -80,17 +82,22 @@ class StatisticSView {
         tableView.setColumnComparator(2, new ResultTrialsComparator());
         tableView.setDataAdapter(new ResultTableDataAdapter(context, results));
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(context, tableHeaders));
-//todo nicht zurück sondern zum kalender
-        builder.setPositiveButton("Zurück", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Zurück zum Kalender", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
+                ((Activity) context).finish();
             }
         });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-    void postData() throws JSONException {
+    void postData(final LocalResult result) throws JSONException {
+        final ProgressDialog progress = new ProgressDialog(context);
+        progress.setTitle("Loading");
+        progress.setMessage("Warte auf Server...");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.show();
+
         String mpf = context.getResources().getString(R.string.MyPrefsFile);
         SharedPreferences settings = context.getSharedPreferences(mpf, 0);
         String userName = settings.getString(context.getResources().getString(R.string.user_name), "Unbekannt");
@@ -118,6 +125,7 @@ class StatisticSView {
                         Log.d("Response", response.toString());
                         try {
                             build_stats(response);
+                            progress.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -129,7 +137,27 @@ class StatisticSView {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error.Response", "Error: " + error.getMessage());
-                        //todo error in app zeigen
+                        progress.dismiss();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setMessage("Die Antwort dauert zu lange oder ist fehlgeschlagen...");
+                        builder.setPositiveButton("Zurück zum Kalender", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ((Activity) context).finish();
+                            }
+                        });
+                        builder.setNegativeButton("Erneut probieren", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                try {
+                                    postData(result);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
 
                     }
                 }

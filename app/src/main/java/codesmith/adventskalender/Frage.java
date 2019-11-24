@@ -19,6 +19,7 @@ import android.widget.VideoView;
 
 
 import org.json.JSONException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,6 +34,7 @@ public class Frage extends Activity {
     String idAsString;
     String day_as_string;
     LocalResult result;
+    StatisticSView statisic_view;
 
 
     @Override
@@ -42,6 +44,7 @@ public class Frage extends Activity {
         Bundle bund = getIntent().getExtras(); //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
         this.idAsString = bund.getString("idAsString"); //Holt den ID Namen aus Uebergabeparameter
         this.day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
+        this.statisic_view= new StatisticSView(this, day_as_string);
         this.result = new LocalResult(this, day_as_string);
         Integer id = bund.getInt("id"); // Holt die ID des Tagesbutton aus den Uebergabeparameter
         String substring = idAsString.substring(Math.max(idAsString.length() - 2, 0)); //Zahl fuer den Titel aus dem Id Namen
@@ -398,7 +401,6 @@ public class Frage extends Activity {
             msg.setTextSize(20);
             msg.setGravity(Gravity.CENTER);
             builder.setView(msg);
-            //todo add option to show statistics
             builder.setPositiveButton("Zurück zum Kalender", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     finish();
@@ -409,6 +411,18 @@ public class Frage extends Activity {
                     setResult(RESULT_OK, intent);
                     finish();
                     */
+                }
+            });
+            builder.setNegativeButton("Statisitk", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                    try {
+                        statisic_view.postData(result);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 }
             });
             AlertDialog dialog = builder.create();
@@ -500,12 +514,10 @@ public class Frage extends Activity {
         switch (item.getItemId()) {
             case R.id.get_stats:
                 try {
-                    StatisticSView statisic_view = new StatisticSView(this, day_as_string, result);
-                    statisic_view.postData();
+                    statisic_view.postData(result);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                // TODO: 29.10.2019 Hier Funktion aufrufen, welche LocalResult per rest abfraegt
                 // Anfrage mit Datum -> Eintrag wird angelegt
                 // Anfrage ohne Datum -> Nur Ergebnisse
                 //besser zweite rest funktion -> zum abspeichern und eintragen von Werten
