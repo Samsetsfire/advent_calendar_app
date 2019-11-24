@@ -90,11 +90,63 @@ class StatisticSView {
         dialog.show();
     }
 
+    void postDataSilentfinal(LocalResult result) throws JSONException {
+        String mpf = context.getResources().getString(R.string.MyPrefsFile);
+        SharedPreferences settings = context.getSharedPreferences(mpf, 0);
+        String userName = settings.getString(context.getResources().getString(R.string.res_user_name), "Unbekannt");
+
+        JSONObject jsonBody = new JSONObject();
+        jsonBody.put(restApiKey, context.getResources().getString(R.string.SECRET_API_KEY));
+        jsonBody.put(restQuestionId, day);
+        jsonBody.put(restUserName, userName);
+        jsonBody.put(restTrials, result.get_trials());
+        jsonBody.put(restDateTime, result.get_solved_date());
+        final String requestBody = jsonBody.toString();
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        String url = "https://advent-calendar-data-api.herokuapp.com/get_results";
+
+        JsonArrayRequest postRequest = new JsonArrayRequest(Request.Method.POST, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(postRequest);
+
+    }
+
+
     void postData(final LocalResult result) throws JSONException {
         final ProgressDialog progress = new ProgressDialog(context);
         progress.setTitle("Loading");
         progress.setMessage("Warte auf Server...");
-        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.setCancelable(false);
         progress.show();
 
         String mpf = context.getResources().getString(R.string.MyPrefsFile);

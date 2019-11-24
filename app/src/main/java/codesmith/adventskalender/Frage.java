@@ -427,7 +427,8 @@ public class Frage extends Activity {
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-            //Speichert dass Frage geloest
+
+            //Saves that question is solved
             String mpf = getResources().getString(R.string.MyPrefsFile);        //Eindeutiger String aus string.xml fuer die Shared Preferences
             SharedPreferences settings = getSharedPreferences(mpf, 0);      //Zugriff auf SharedPreferences welche Werte Fest auf der Festpaltte speichert.
             Integer trials = settings.getInt(getResources().getString(R.string.res_trials, day_as_string), 0);
@@ -440,6 +441,14 @@ public class Frage extends Activity {
             SharedPreferences.Editor editor = settings.edit();
             editor.putBoolean(idAsString, true);         //Speichert ob der Tag geloesst worden ist.
             editor.apply();
+
+            //Send data to server
+            try {
+                statisic_view.postDataSilentfinal(result);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
         }
         //Wenn die Antwort nicht im Dictionary zu finden ist:
