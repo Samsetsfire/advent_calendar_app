@@ -457,7 +457,7 @@ public class Frage extends Activity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             TextView msg = new TextView(this);
             //Diverse String Ueberpruefungen
-            // TODO: 29.10.2019 Score is only calculated for first Answere...
+            // 29.10.2019 Score is only calculated for first Answere... could be improved
             for (String loesung : antwortDesTages) {
                 //Berechnung ob ein Buchstabe vertauscht ist
                 int score = 0;

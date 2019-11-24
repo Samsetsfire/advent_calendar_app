@@ -31,7 +31,6 @@ import org.threeten.bp.format.DateTimeFormatter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 import de.codecrafters.tableview.SortableTableView;
@@ -100,7 +99,7 @@ class StatisticSView {
 
         String mpf = context.getResources().getString(R.string.MyPrefsFile);
         SharedPreferences settings = context.getSharedPreferences(mpf, 0);
-        String userName = settings.getString(context.getResources().getString(R.string.user_name), "Unbekannt");
+        String userName = settings.getString(context.getResources().getString(R.string.res_user_name), "Unbekannt");
 
         JSONObject jsonBody = new JSONObject();
         //jsonBody.put("api_key", "123");
@@ -181,7 +180,6 @@ class StatisticSView {
         };
 
         // Add the request to the RequestQueue.
-        //todo waiting animation
         queue.add(postRequest);
 
     }

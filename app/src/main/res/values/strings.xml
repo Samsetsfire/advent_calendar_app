@@ -7,7 +7,7 @@
 
     <!--    -->
     <string name="MyPrefsFile">MyPrefsFile</string>
-    <string name="user_name">user_name</string>
+    <string name="res_user_name">res_user_name</string>
     <string name="res_trials">trials_day_%s</string>
     <string name="res_solved_datetime">solved_datetime_day_%s</string>
 

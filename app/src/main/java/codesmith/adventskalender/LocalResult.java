@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 class LocalResult {
+    /**
+     * Class for Saving the Result of the user for a specific day
+     * Used to send Result to the Server
+     */
     private Context context;
     private SharedPreferences settings;
     private String day;

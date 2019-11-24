@@ -2,6 +2,7 @@ package codesmith.adventskalender;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +24,7 @@ import java.util.Date;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
@@ -191,6 +193,10 @@ public class MainActivity extends Activity {
                 ib.startAnimation(animation);
             }
         }
+        //ask User for Username if not setted yet.
+        if (isUserNameSet()) {
+            setUserName();
+        }
 
     }
 
@@ -322,16 +328,24 @@ public class MainActivity extends Activity {
         return false;
     }
 
+
+    public boolean isUserNameSet() {
+        String mpf = getResources().getString(R.string.MyPrefsFile);
+        SharedPreferences settings = getSharedPreferences(mpf, 0);
+        return settings.getString(getResources().getString(R.string.res_user_name), "no_user_name_yet").equals("no_user_name_yet");
+    }
+
+
     public void setUserName() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         String mpf = getResources().getString(R.string.MyPrefsFile);
         final SharedPreferences settings = getSharedPreferences(mpf, 0);
-        if (settings.getString(getResources().getString(R.string.user_name), "no_user_name_yet") == "no_user_name_yet") {
+        if (isUserNameSet()) {
             builder.setTitle("Wie heißt du?");
         } else {
-            String userName = settings.getString(getResources().getString(R.string.user_name), "Niemand");
-            builder.setTitle("Aktueller Name: \"" + userName+"\"");
+            String userName = settings.getString(getResources().getString(R.string.res_user_name), "Niemand");
+            builder.setTitle("Aktueller Name: \"" + userName + "\"");
         }
 
         // Set up the input
@@ -342,16 +356,17 @@ public class MainActivity extends Activity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 String userName = input.getText().toString();
-                if (userName.length() == 0){
-                    //TODO Fehler abfangen
+                if (userName.length() == 0) {
+                    toast("Name nicht geändert");
                     return;
                 }
 
                 SharedPreferences.Editor editor = settings.edit();
-                editor.putString(getResources().getString(R.string.user_name), userName);
+                editor.putString(getResources().getString(R.string.res_user_name), userName);
                 editor.apply();
-                //todo schoene Begruessung
+                toast("Viel Spaß " + userName);
             }
         });
 
@@ -359,10 +374,20 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
+                toast("Name nicht geändert");
             }
         });
 
         builder.show();
+
+
+    }
+
+    void toast(CharSequence text) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
     }
 
@@ -387,7 +412,6 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
         onCreate(new Bundle()); //refresht wenn Frage gefinished wird, da OnCreate bei Finish nicht ausgeloest wird...
     }
