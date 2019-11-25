@@ -44,7 +44,7 @@ public class Frage extends Activity {
         Bundle bund = getIntent().getExtras(); //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
         this.idAsString = bund.getString("idAsString"); //Holt den ID Namen aus Uebergabeparameter
         this.day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
-        this.statisic_view= new StatisticSView(this, day_as_string);
+        this.statisic_view= new StatisticSView(this);
         this.result = new LocalResult(this, day_as_string);
         Integer id = bund.getInt("id"); // Holt die ID des Tagesbutton aus den Uebergabeparameter
         String substring = idAsString.substring(Math.max(idAsString.length() - 2, 0)); //Zahl fuer den Titel aus dem Id Namen

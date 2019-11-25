@@ -10,7 +10,7 @@ class LocalResult {
      */
     private Context context;
     private SharedPreferences settings;
-    private String day;
+    public String day;
 
     LocalResult(Context current, String day) {
         this.context = current;

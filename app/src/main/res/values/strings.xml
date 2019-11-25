@@ -18,6 +18,12 @@
     <string name="rest_trials">trials</string>
     <string name="rest_datetime">solved_date</string>
 
+    <string name="uri_prod">https://advent-calendar-data-api.herokuapp.com</string>
+    <string name="uri_dev">http://192.168.178.45:8001</string>
+    <string name="uri_get_results">/get_results</string>
+    <string name="uri_overall_stats">/overall_stats</string>
+
+
     <string name="SECRET_API_KEY">"Valar dohaeris"</string>
     <string name="SECRET_API_KEY_DEBUG">"123"</string>
 

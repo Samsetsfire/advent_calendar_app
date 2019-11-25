@@ -28,6 +28,8 @@ import android.widget.Toast;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import org.json.JSONException;
+
 
 public class MainActivity extends Activity {
     public Activity activity;
@@ -404,6 +406,13 @@ public class MainActivity extends Activity {
             case R.id.change_user_name:
                 setUserName();
                 return true;
+            case R.id.overall_stats:
+                StatisticSView statisic_view = new StatisticSView(this);
+                try {
+                    statisic_view.postOverallData();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             default:
                 return super.onOptionsItemSelected(item);
