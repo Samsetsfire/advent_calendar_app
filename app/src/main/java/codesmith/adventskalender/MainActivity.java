@@ -188,7 +188,7 @@ public class MainActivity extends Activity {
             animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
 
             int todayButtonId = getResources().getIdentifier("z" + today, "id", getPackageName());
-            String stemp = "codesmith.adventskalender2016:id/z" + today;
+            String stemp = "codesmith.adventskalender2019:id/z" + today;
             Boolean z25 = settings.getBoolean(stemp, false);
             if (z25 == false) {
                 ImageButton ib = (ImageButton) findViewById(todayButtonId);
@@ -316,7 +316,7 @@ public class MainActivity extends Activity {
 
     public Boolean checkDate(String day) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String valid_until = day + "/12/" + getString(R.string.release_year);
+        String valid_until = day + "/11/" + getString(R.string.release_year);
         Date strDate = null;
         try {
             strDate = sdf.parse(valid_until);

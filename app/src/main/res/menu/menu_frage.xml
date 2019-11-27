@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="codesmith.adventskalender2016.Frage">
+    tools:context="codesmith.adventskalender2019.Frage">
     <item android:id="@+id/get_stats"
         android:title="Statistik" />
 
