@@ -52,7 +52,8 @@ public class Frage extends Activity {
         //Loesungen kleinschreiben, da tolower
         //Laenge der Loesungen moeglichst gleich halten, damit die Laengen-Hinweise bei falschen Antworten passen?
 
-
+        //todo loesungen strippen + sonderzeichen raus
+        // hinweise fuer bestimmte tage, nach bestimmter anzahl an versuchen
         switch (id) {
 
             //region Familie
@@ -71,7 +72,7 @@ public class Frage extends Activity {
                 break;
             case R.id.z04:
                 antwortDesTages.add("New England Patriots".toLowerCase());
-                createQuestionElement("Zu wem gehört dieses Logo?", R.drawable.f04);
+                createQuestionElement("Zu welchem Team gehört dieses Logo?", R.drawable.f04);
                 break;
             case R.id.z05:
                 antwortDesTages.add("Simpsons".toLowerCase());
@@ -83,14 +84,14 @@ public class Frage extends Activity {
                 break;
             case R.id.z07:
                 antwortDesTages.add("Hongkong".toLowerCase());
-                createQuestionElement("Wessen Flagge ist das?", R.drawable.f07);
+                createQuestionElement("Zu welcher Stadt gehört diese Flagge?", R.drawable.f07);
                 break;
             case R.id.z08:
                 antwortDesTages.add("Salzburg".toLowerCase());
                 createQuestionElement("Welche Stadt ist das?", R.drawable.f08);
                 break;
             case R.id.z09:
-                antwortDesTages.add("Munch".toLowerCase());
+                antwortDesTages.add("Edvard Munch".toLowerCase());
                 createQuestionElement("Von wem ist diese Bild", R.drawable.f09);
                 break;
             case R.id.z10:
@@ -99,10 +100,13 @@ public class Frage extends Activity {
                 break;
             case R.id.z11:
                 antwortDesTages.add("Interstellar".toLowerCase());
-                createQuestionElement("Aus welchem Film ist diese Szene nachgespielt?", R.raw.f11);
+                createQuestionElement("An welchen Weltraumfilm ist diese \"Docking-Szene\" angelehnt?", R.raw.f11);
                 break;
             case R.id.z12:
                 antwortDesTages.add("Kirsch".toLowerCase());
+                antwortDesTages.add("Kirsche".toLowerCase());
+                antwortDesTages.add("Kirschbaum".toLowerCase());
+                antwortDesTages.add("Kirschholz".toLowerCase());
                 createQuestionElement("Aus welchem Holz ist dieses Brett?", R.drawable.f12);
                 break;
             case R.id.z13:
@@ -111,15 +115,16 @@ public class Frage extends Activity {
                 break;
             case R.id.z14:
                 antwortDesTages.add("11".toLowerCase());
+                antwortDesTages.add("elf".toLowerCase());
                 createQuestionElement("\"1011\" Welche Dezimalzahl ist gesucht?", R.drawable.f14);
                 break;
             case R.id.z15:
-                antwortDesTages.add("Bad".toLowerCase());
-                createQuestionElement("Was sollte man regelmäßig Putzen?", R.drawable.f15);
+                antwortDesTages.add("Zähne".toLowerCase());
+                createQuestionElement("Was sollte man regelmäßig putzen?", R.drawable.f15);
                 break;
             case R.id.z16:
                 antwortDesTages.add("Murmeltier".toLowerCase());
-                createQuestionElement("Zu welchem Tier gehört dieser Schädel?", R.drawable.f16);
+                createQuestionElement("Zu welchem Tier gehört dieser Schädel? Hinweis: Es lebt auch in den Alpen und hält gerade Winterschlaf.", R.drawable.f16);
                 break;
             case R.id.z17:
                 antwortDesTages.add("Wollen".toLowerCase());
@@ -135,15 +140,21 @@ public class Frage extends Activity {
                 break;
             case R.id.z20:
                 antwortDesTages.add("Relaxo".toLowerCase());
-                createQuestionElement("Welches Pokemon ist gesucht?", R.drawable.f20);
+                antwortDesTages.add("Snorlax".toLowerCase());
+                createQuestionElement("Welches Pokemon ist gesucht? Hinweis: Es isst und schläft viel.", R.drawable.f20);
                 break;
             case R.id.z21:
                 antwortDesTages.add("Meran".toLowerCase());
                 createQuestionElement("Zu welcher Stadt gehört dieses Wappen?", R.drawable.f21);
                 break;
             case R.id.z22:
-                antwortDesTages.add("Cummulus".toLowerCase());
-                createQuestionElement("Wie bezeichnet man diese Wolken?", R.drawable.f22);
+                antwortDesTages.add("Cumulus".toLowerCase());
+                antwortDesTages.add("Cumuluswolke".toLowerCase());
+                antwortDesTages.add("Cumuluswolken".toLowerCase());
+                antwortDesTages.add("Kumulus".toLowerCase());
+                antwortDesTages.add("Kumuluswolke".toLowerCase());
+                antwortDesTages.add("Kumuluswolken".toLowerCase());
+                createQuestionElement("Wie bezeichnet man diese Wolkenform?", R.drawable.f22);
                 break;
             case R.id.z23:
                 antwortDesTages.add("Minecraft".toLowerCase());

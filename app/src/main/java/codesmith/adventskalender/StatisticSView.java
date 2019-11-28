@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.util.Log;
 
 import android.view.Gravity;
@@ -145,8 +146,6 @@ class StatisticSView {
         jsonBody.put(restApiKey, context.getResources().getString(R.string.SECRET_API_KEY));
         jsonBody.put("results", jsonArray);
         return jsonBody;
-
-
     }
 
     void postOverallData() throws JSONException {

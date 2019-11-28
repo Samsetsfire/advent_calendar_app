@@ -316,7 +316,7 @@ public class MainActivity extends Activity {
 
     public Boolean checkDate(String day) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String valid_until = day + "/11/" + getString(R.string.release_year);
+        String valid_until = day + "/12/" + getString(R.string.release_year);
         Date strDate = null;
         try {
             strDate = sdf.parse(valid_until);
