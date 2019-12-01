@@ -6,8 +6,8 @@ android {
         applicationId "codesmith.adventskalender"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 5
-        versionName "2019.2"
+        versionCode 6
+        versionName "2019.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
