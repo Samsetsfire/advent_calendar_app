@@ -3,83 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="85247177-8ef0-4dfd-9a6f-2389ef2fec4c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/Frage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/Frage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_04.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_05.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_06.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_07.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_08.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_08.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_09.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_09.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_11.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_12.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_13.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_14.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_15.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_16.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_17.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_17.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_18.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_19.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_19.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_20.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_21.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_21.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_22.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_23.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_23.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_24.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/bild_24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f05.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f07.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f09.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f12.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f14.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f15.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f20.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f20.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f21.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f23.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f23.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/s04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/s11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/s13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/s14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/s22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/menu/menu_frage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/menu/menu_frage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f02.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f04.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f06.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f08.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f10.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f13.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f16.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f18.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f19.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f22.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f24.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f24.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s01.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s02.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s03.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s05.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s06.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s07.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s08.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s09.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s10.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s12.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s15.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s16.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s17.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s18.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s19.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s20.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s21.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s23.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/s24.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,6 +130,7 @@
       <workItem from="1574721198238" duration="81000" />
       <workItem from="1574790507128" duration="1668000" />
       <workItem from="1574812483754" duration="488000" />
+      <workItem from="1575212661013" duration="16000" />
     </task>
     <servers />
   </component>

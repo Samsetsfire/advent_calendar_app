@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -348,10 +349,13 @@ public class MainActivity extends Activity {
         } else {
             String userName = settings.getString(getResources().getString(R.string.res_user_name), "Niemand");
             builder.setTitle("Aktueller Name: \"" + userName + "\"");
+
         }
 
         // Set up the input
         final EditText input = new EditText(this);
+        final int maxLength = 22;
+        input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
         builder.setView(input);
 
         // Set up the buttons
@@ -359,9 +363,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                String userName = input.getText().toString();
+                String userName = input.getText().toString().trim();
                 if (userName.length() == 0) {
                     toast("Name nicht geändert");
+                    return;
+                }
+                if (userName.length() > maxLength) {
+                    toast("Name darf nicht länger als 22 Zeichen sein!");
                     return;
                 }
 
