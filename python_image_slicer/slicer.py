@@ -24,5 +24,5 @@ def split_image():
 
 
 if __name__ == '__main__':
-    im = Image.open(r"augsburg (2).jpg")
+    im = Image.open(r"DSC06522.jpg")
     split_image()

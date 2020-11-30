@@ -2,9 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85247177-8ef0-4dfd-9a6f-2389ef2fec4c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f14.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f01.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f03.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f07.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f12.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f18.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f20.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f21.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f23.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/../app/release/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/Frage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/Frage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f06.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f08.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f08.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f09.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f09.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f15.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f16.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f18.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f19.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f19.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f11.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f11.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f17.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f24.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,8 +67,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JupyterTrust" id="8ee29828-c940-4611-943c-fbc248e76859" />
   <component name="ProjectId" id="1U7wyY84UelzFGELEEYXwg5UGHv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -32,18 +84,6 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.slicer">
     <configuration name="beispiel" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -116,6 +156,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>C:\Users\Julian\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
@@ -131,6 +172,8 @@
       <workItem from="1574790507128" duration="1668000" />
       <workItem from="1574812483754" duration="488000" />
       <workItem from="1575212661013" duration="16000" />
+      <workItem from="1584875238761" duration="199000" />
+      <workItem from="1606761212935" duration="730000" />
     </task>
     <servers />
   </component>
@@ -144,9 +187,27 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1331" height="303" key="GridCell.Tab.0.bottom" timestamp="1606765736889">
+      <screen x="0" y="0" width="2752" height="1112" />
+    </state>
+    <state width="1331" height="303" key="GridCell.Tab.0.bottom/0.0.2752.1112@0.0.2752.1112" timestamp="1606765736889" />
+    <state width="1331" height="303" key="GridCell.Tab.0.center" timestamp="1606765736889">
+      <screen x="0" y="0" width="2752" height="1112" />
+    </state>
+    <state width="1331" height="303" key="GridCell.Tab.0.center/0.0.2752.1112@0.0.2752.1112" timestamp="1606765736889" />
+    <state width="1331" height="303" key="GridCell.Tab.0.left" timestamp="1606765736889">
+      <screen x="0" y="0" width="2752" height="1112" />
+    </state>
+    <state width="1331" height="303" key="GridCell.Tab.0.left/0.0.2752.1112@0.0.2752.1112" timestamp="1606765736889" />
+    <state width="1331" height="303" key="GridCell.Tab.0.right" timestamp="1606765736889">
+      <screen x="0" y="0" width="2752" height="1112" />
+    </state>
+    <state width="1331" height="303" key="GridCell.Tab.0.right/0.0.2752.1112@0.0.2752.1112" timestamp="1606765736889" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_image_slicer$slicer.coverage" NAME="slicer Coverage Results" MODIFIED="1574812649541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_image_slicer$slicer.coverage" NAME="slicer Coverage Results" MODIFIED="1606761338459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

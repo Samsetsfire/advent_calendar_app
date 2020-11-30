@@ -7,17 +7,17 @@ android {
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 7
-        versionName "2019.4"
+        versionName "2020.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue "string", "release_year", "2019"
+            resValue "string", "release_year", "2020"
         }
         debug {
-            resValue "string", "release_year", "2019"
+            resValue "string", "release_year", "2020"
         }
     }
 }

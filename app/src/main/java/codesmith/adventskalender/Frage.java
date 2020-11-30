@@ -44,7 +44,7 @@ public class Frage extends Activity {
         Bundle bund = getIntent().getExtras(); //erstellt ein Bundle um die Uebergabeparameter aus der Mainactivity auslesen zu koennen
         this.idAsString = bund.getString("idAsString"); //Holt den ID Namen aus Uebergabeparameter
         this.day_as_string = idAsString.substring(Math.max(idAsString.length() - 2, 0));
-        this.statisic_view= new StatisticSView(this);
+        this.statisic_view = new StatisticSView(this);
         this.result = new LocalResult(this, day_as_string);
         Integer id = bund.getInt("id"); // Holt die ID des Tagesbutton aus den Uebergabeparameter
         String substring = idAsString.substring(Math.max(idAsString.length() - 2, 0)); //Zahl fuer den Titel aus dem Id Namen
@@ -52,117 +52,143 @@ public class Frage extends Activity {
         //Loesungen kleinschreiben, da tolower
         //Laenge der Loesungen moeglichst gleich halten, damit die Laengen-Hinweise bei falschen Antworten passen?
 
-        //todo loesungen strippen + sonderzeichen raus
+        //todo loesungen sonderzeichen raus
         // hinweise fuer bestimmte tage, nach bestimmter anzahl an versuchen
         switch (id) {
 
             //region Familie
 
             case R.id.z01:
-                antwortDesTages.add("Tesla".toLowerCase());
-                createQuestionElement("Welche Automarke ist gesucht?", R.drawable.f01);
+                antwortDesTages.add("Powder".toLowerCase());
+                antwortDesTages.add("Pulver".toLowerCase());
+                antwortDesTages.add("Pulverschnee".toLowerCase());
+                createQuestionElement("In welchem Schnee fährt der Freerider am liebsten?", R.raw.f01);
                 break;
             case R.id.z02:
-                antwortDesTages.add("WWK Arena".toLowerCase());
-                createQuestionElement("Wie heißt das Stadion des FCA?", R.drawable.f02);
+                antwortDesTages.add("Aserbaidschan".toLowerCase());
+                createQuestionElement("Zu welchem Land gehört diese Flagge?", R.drawable.f02);
                 break;
             case R.id.z03:
-                antwortDesTages.add("Fridays for Future".toLowerCase());
-                createQuestionElement("\"Fredagar för framtiden\"\nWas könnte das heißen?", R.drawable.f03);
+                antwortDesTages.add("Star Wars".toLowerCase());
+                createQuestionElement("Wie heißt die Filmreihe aus der dieses Lied stammt?", R.raw.f03);
                 break;
             case R.id.z04:
-                antwortDesTages.add("New England Patriots".toLowerCase());
-                createQuestionElement("Zu welchem Team gehört dieses Logo?", R.drawable.f04);
+                antwortDesTages.add("Prozessor".toLowerCase());
+                antwortDesTages.add("Processor".toLowerCase());
+                antwortDesTages.add("CPU".toLowerCase());
+                antwortDesTages.add("Central Processing Unit ".toLowerCase());
+                createQuestionElement("Was ist das für ein PC Bauteil?", R.drawable.f04);
                 break;
             case R.id.z05:
-                antwortDesTages.add("Simpsons".toLowerCase());
-                createQuestionElement("Aus welcher Serie ist dieses Haus?", R.drawable.f05);
+                antwortDesTages.add("Van Gogh".toLowerCase());
+                antwortDesTages.add("Vincent van Gogh".toLowerCase());
+                createQuestionElement("Dem Stil welchen bekannten Malers ist das nachempfunden?", R.drawable.f05);
                 break;
             case R.id.z06:
-                antwortDesTages.add("Otter".toLowerCase());
-                createQuestionElement("Von welchem Tier stammt diese Spur?", R.drawable.f06);
+                antwortDesTages.add("Rotkäppchen".toLowerCase());
+                antwortDesTages.add("Rotkaeppchen".toLowerCase());
+                createQuestionElement("Welches Märchen ist gesucht?", R.drawable.f06);
                 break;
             case R.id.z07:
-                antwortDesTages.add("Hongkong".toLowerCase());
-                createQuestionElement("Zu welcher Stadt gehört diese Flagge?", R.drawable.f07);
+                antwortDesTages.add("Schlussentspannung".toLowerCase());
+                antwortDesTages.add("Anfangsentspannung".toLowerCase());
+                antwortDesTages.add("Entspannungsphase".toLowerCase());
+                antwortDesTages.add("Schluss-entspannung".toLowerCase());
+                createQuestionElement("Wie nennt man diese Phase im Yoga?", R.raw.f07);
                 break;
             case R.id.z08:
-                antwortDesTages.add("Salzburg".toLowerCase());
-                createQuestionElement("Welche Stadt ist das?", R.drawable.f08);
+                antwortDesTages.add("Shiggy".toLowerCase());
+                createQuestionElement("Wie heißt dieses Pokemon? Hinweis: Es steht für die blaue Edition", R.drawable.f08);
                 break;
             case R.id.z09:
-                antwortDesTages.add("Edvard Munch".toLowerCase());
-                createQuestionElement("Von wem ist diese Bild", R.drawable.f09);
+                antwortDesTages.add("Venn-Diagramm".toLowerCase());
+                antwortDesTages.add("Venn Diagramm".toLowerCase());
+                createQuestionElement("Wie bezeichnet man diese Art von Diagramm?", R.drawable.f09);
                 break;
             case R.id.z10:
-                antwortDesTages.add("Katarakt".toLowerCase());
-                createQuestionElement("Kajak: Eine im Wildwasser durch Blöcke oder Felsriegel gegliederte Stromschnelle bezeichnet man als ...", R.drawable.f10);
+                antwortDesTages.add("Türkei".toLowerCase());
+                createQuestionElement("Welches Land ist gesucht?", R.drawable.f10);
                 break;
             case R.id.z11:
-                antwortDesTages.add("Interstellar".toLowerCase());
-                createQuestionElement("An welchen Weltraumfilm ist diese \"Docking-Szene\" angelehnt?", R.raw.f11);
+                antwortDesTages.add("Hydraulik".toLowerCase());
+                createQuestionElement("Technik der Verwendung von Flüssigkeiten zur Signal-, Kraft- und Energieübertragung ist eine ... ?", R.raw.f11);
                 break;
             case R.id.z12:
-                antwortDesTages.add("Kirsch".toLowerCase());
-                antwortDesTages.add("Kirsche".toLowerCase());
-                antwortDesTages.add("Kirschbaum".toLowerCase());
-                antwortDesTages.add("Kirschholz".toLowerCase());
-                createQuestionElement("Aus welchem Holz ist dieses Brett?", R.drawable.f12);
+                antwortDesTages.add("Harry Potter".toLowerCase());
+                createQuestionElement("Zu welcher Filmreihe gehört dieses Lied?", R.raw.f12);
                 break;
             case R.id.z13:
-                antwortDesTages.add("Las Vegas".toLowerCase());
-                createQuestionElement("Wo steht dieser Turm?", R.drawable.f13);
+                antwortDesTages.add("Berg-Ahorn".toLowerCase());
+                antwortDesTages.add("Bergahorn".toLowerCase());
+                antwortDesTages.add("Ahorn".toLowerCase());
+                createQuestionElement("Wie heißt die gesuchte Baumart?", R.drawable.f13);
                 break;
             case R.id.z14:
-                antwortDesTages.add("11".toLowerCase());
-                antwortDesTages.add("elf".toLowerCase());
-                createQuestionElement("\"1011\" Welche Dezimalzahl ist gesucht?", R.drawable.f14);
+                antwortDesTages.add("Mürbteig".toLowerCase());
+                createQuestionElement("Diese Zutaten ergeben einen ... ?", R.drawable.f14);
                 break;
             case R.id.z15:
-                antwortDesTages.add("Zähne".toLowerCase());
-                createQuestionElement("Was sollte man regelmäßig putzen?", R.drawable.f15);
+                antwortDesTages.add("Ulm".toLowerCase());
+                createQuestionElement("Welche Stadt ist gesucht?", R.drawable.f15);
                 break;
             case R.id.z16:
-                antwortDesTages.add("Murmeltier".toLowerCase());
-                createQuestionElement("Zu welchem Tier gehört dieser Schädel? Hinweis: Es lebt auch in den Alpen und hält gerade Winterschlaf.", R.drawable.f16);
+                antwortDesTages.add("Gutenberg".toLowerCase());
+                createQuestionElement("Wie lautet der Nachname dieses Mannes?", R.drawable.f16);
                 break;
             case R.id.z17:
-                antwortDesTages.add("Wollen".toLowerCase());
-                createQuestionElement("Magie = Physik / ...", R.raw.f17);
+                antwortDesTages.add("Rocket League".toLowerCase());
+                createQuestionElement("Wie heißt das gesuchte Computerspiel?", R.drawable.f17);
                 break;
             case R.id.z18:
-                antwortDesTages.add("New Mexico".toLowerCase());
-                createQuestionElement("Wie heißt der Bundesstaat?", R.drawable.f18);
+                antwortDesTages.add("Kirsch-Goiß".toLowerCase());
+                antwortDesTages.add("Kirsch Goiß".toLowerCase());
+                antwortDesTages.add("Kirschgoiß".toLowerCase());
+                antwortDesTages.add("Kirsch-Goaß".toLowerCase());
+                antwortDesTages.add("Kirsch Goaß".toLowerCase());
+                antwortDesTages.add("Kirschgoaß".toLowerCase());
+                antwortDesTages.add("Goaß".toLowerCase());
+                antwortDesTages.add("Goiß".toLowerCase());
+                createQuestionElement("Welches Getränk wird hier gemixt?", R.raw.f18);
                 break;
             case R.id.z19:
-                antwortDesTages.add("Kroatien".toLowerCase());
-                createQuestionElement("Aus welchem Land stammen diese Scheine?", R.drawable.f19);
+                antwortDesTages.add("Werwölfe".toLowerCase());
+                antwortDesTages.add("Werwolf".toLowerCase());
+                antwortDesTages.add("Die Werwölfe von Düsterwald".toLowerCase());
+                antwortDesTages.add("Werwölfe von Palermo".toLowerCase());
+                antwortDesTages.add("Wölfe von Palermo".toLowerCase());
+                createQuestionElement("Was spielen diese Menschen?", R.drawable.f19);
                 break;
             case R.id.z20:
-                antwortDesTages.add("Relaxo".toLowerCase());
-                antwortDesTages.add("Snorlax".toLowerCase());
-                createQuestionElement("Welches Pokemon ist gesucht? Hinweis: Es isst und schläft viel.", R.drawable.f20);
+                antwortDesTages.add("Metallica".toLowerCase());
+                createQuestionElement("Welche Band hat dieses Lied geschrieben?", R.raw.f20);
                 break;
             case R.id.z21:
-                antwortDesTages.add("Meran".toLowerCase());
-                createQuestionElement("Zu welcher Stadt gehört dieses Wappen?", R.drawable.f21);
+                antwortDesTages.add("Labrador".toLowerCase());
+                antwortDesTages.add("Pupsgesicht".toLowerCase());
+                createQuestionElement("Hund Fanny ist ein?", R.raw.f21);
                 break;
             case R.id.z22:
-                antwortDesTages.add("Cumulus".toLowerCase());
-                antwortDesTages.add("Cumuluswolke".toLowerCase());
-                antwortDesTages.add("Cumuluswolken".toLowerCase());
-                antwortDesTages.add("Kumulus".toLowerCase());
-                antwortDesTages.add("Kumuluswolke".toLowerCase());
-                antwortDesTages.add("Kumuluswolken".toLowerCase());
-                createQuestionElement("Wie bezeichnet man diese Wolkenform?", R.drawable.f22);
+                antwortDesTages.add("Elsass".toLowerCase());
+                createQuestionElement("Was ist gesucht?", R.drawable.f22);
                 break;
             case R.id.z23:
-                antwortDesTages.add("Minecraft".toLowerCase());
-                createQuestionElement("Wie heißt das gesuchte Spiel?", R.drawable.f23);
+                antwortDesTages.add("Le Mont Saint Michel".toLowerCase());
+                antwortDesTages.add("Mont Saint Michel".toLowerCase());
+                antwortDesTages.add("Saint Michel".toLowerCase());
+                antwortDesTages.add("Le Mont St. Michel".toLowerCase());
+                antwortDesTages.add("Mont St. Michel".toLowerCase());
+                antwortDesTages.add("St. Michel".toLowerCase());
+                antwortDesTages.add("Le Mont St Michel".toLowerCase());
+                antwortDesTages.add("Mont St Michel".toLowerCase());
+                antwortDesTages.add("St Michel".toLowerCase());
+                antwortDesTages.add("Le Mont-Saint-Michel".toLowerCase());
+                antwortDesTages.add("Mont-Saint-Michel".toLowerCase());
+                antwortDesTages.add("Saint-Michel".toLowerCase());
+                createQuestionElement("Wie heißt dieser Ort?", R.raw.f23);
                 break;
             case R.id.z24:
-                antwortDesTages.add("Feuerlöscher".toLowerCase());
-                createQuestionElement("Was benötigt man heute dringend in Reichweite?", R.raw.f24);
+                antwortDesTages.add("Horus".toLowerCase());
+                createQuestionElement("Welche Gottheit ist gesucht?", R.drawable.f24);
                 lsg = "Frohe Weihnachten!";
                 break;
 
@@ -171,7 +197,7 @@ public class Frage extends Activity {
         }
     }
 
-    public void createQuestionElement( String question, int res_id) {
+    public void createQuestionElement(String question, int res_id) {
 //        Es wird nur unterschieden, ob Bild oder Video. Fuer Musik braucht man einen weiteren
 //        Parameter wenn man dazu noch ein Bild anzeigen moechte
 //        while (AudioPlay.isplayingAudio) {
@@ -215,7 +241,7 @@ public class Frage extends Activity {
 
 
         EditText antwort = findViewById(R.id.Antwort);
-        String antwort_benutzer = antwort.getText().toString().toLowerCase(); // Antwortstring wird eingelesen und kleingeschrieben
+        String antwort_benutzer = antwort.getText().toString().toLowerCase().trim(); // Antwortstring wird eingelesen und kleingeschrieben
 
 
         //if (message.equals(antwortDesTages)){
