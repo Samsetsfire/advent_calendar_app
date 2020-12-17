@@ -2,55 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85247177-8ef0-4dfd-9a6f-2389ef2fec4c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f14.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f01.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f03.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f07.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f12.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f18.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f20.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f21.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f23.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/../app/release/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/Frage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/codesmith/adventskalender/Frage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f06.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f08.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f08.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f09.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f09.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f10.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f13.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f15.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f16.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f18.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f19.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/f19.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/f23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f11.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/raw/f11.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f17.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/raw/f24.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +127,8 @@
       <workItem from="1575212661013" duration="16000" />
       <workItem from="1584875238761" duration="199000" />
       <workItem from="1606761212935" duration="730000" />
+      <workItem from="1607415242370" duration="124000" />
+      <workItem from="1608230780355" duration="556000" />
     </task>
     <servers />
   </component>

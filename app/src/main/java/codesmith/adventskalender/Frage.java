@@ -97,7 +97,7 @@ public class Frage extends Activity {
                 createQuestionElement("Wie nennt man diese Phase im Yoga?", R.raw.f07);
                 break;
             case R.id.z08:
-                antwortDesTages.add("Shiggy".toLowerCase());
+                antwortDesTages.add("Schiggy".toLowerCase());
                 createQuestionElement("Wie heißt dieses Pokemon? Hinweis: Es steht für die blaue Edition", R.drawable.f08);
                 break;
             case R.id.z09:
